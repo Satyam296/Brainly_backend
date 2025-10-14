@@ -1,6 +1,9 @@
-import mongoose , {model , Schema} from "mongoose" ; 
-mongoose.connect("mongodb+srv://SatyamDB:xxUo2yUsh1mJC36N@cluster0.sdy3k.mongodb.net/Brainly");
-mongoose.connect(process.env.MONGO_URI || "mongodb+srv://SatyamDB:xxUo2yUsh1mJC36N@cluster0.sdy3k.mongodb.net/Brainly")
+import mongoose, { model, Schema } from "mongoose";
+
+// MongoDB connection
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://SatyamDB:xxUo2yUsh1mJC36N@cluster0.sdy3k.mongodb.net/Brainly";
+
+mongoose.connect(MONGO_URI)
     .then(() => console.log("Connected to MongoDB"))
     .catch(err => console.log("DB Connection Error:", err));
     

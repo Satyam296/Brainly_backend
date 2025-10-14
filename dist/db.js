@@ -35,8 +35,9 @@ var __importStar = (this && this.__importStar) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LinkModel = exports.ContentModel = exports.UserModel = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-mongoose_1.default.connect("mongodb+srv://SatyamDB:xxUo2yUsh1mJC36N@cluster0.sdy3k.mongodb.net/Brainly");
-mongoose_1.default.connect(process.env.MONGO_URI || "mongodb+srv://SatyamDB:xxUo2yUsh1mJC36N@cluster0.sdy3k.mongodb.net/Brainly")
+// MongoDB connection
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://SatyamDB:xxUo2yUsh1mJC36N@cluster0.sdy3k.mongodb.net/Brainly";
+mongoose_1.default.connect(MONGO_URI)
     .then(() => console.log("Connected to MongoDB"))
     .catch(err => console.log("DB Connection Error:", err));
 const UserSchema = new mongoose_1.Schema({
