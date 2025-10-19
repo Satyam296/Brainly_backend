@@ -1,7 +1,12 @@
 import mongoose, { model, Schema } from "mongoose";
 
 // MongoDB connection
-const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://SatyamDB:xxUo2yUsh1mJC36N@cluster0.sdy3k.mongodb.net/Brainly";
+const MONGO_URI = process.env.MONGO_URI;
+
+if (!MONGO_URI) {
+    console.error("MONGO_URI is not set. Please provide a valid connection string in your environment variables.");
+    process.exit(1);
+}
 
 mongoose.connect(MONGO_URI)
     .then(() => console.log("Connected to MongoDB"))
